@@ -22,6 +22,7 @@ class ApprenantController extends Controller
             'nom' =>'required',
             'prenom' =>'required',
         ]);
+
         $apprenant = new Apprenant();
         $apprenant->nom = $request->nom;
         $apprenant->prenom = $request->prenom;
@@ -30,5 +31,34 @@ class ApprenantController extends Controller
         return redirect('/ajouter')->with('status','L\'apprenant a été ajouté avec succès.');
 
     }
+    public function modifier_apprenant($id) {
+        $changer = Apprenant::find($id);
+
+        return view('modifier',compact('changer'));
+    }
+    public function modifier_apprenant_traitement(Request $request){
+        $request->validate([
+            'nom' =>'required',
+            'prenom' =>'required',
+        ]);
+
+        
+        $apprenant = Apprenant::find($request->id);
+        $apprenant->nom = $request->nom;
+        $apprenant->prenom = $request->prenom;
+        $apprenant->update();
+
+        return redirect('/apprenants')->with('status','L\'apprenant a été modifié avec succès.');
+
+    }
+    public function supprimer_apprenant($id){
+        $enlever = Apprenant::find($id);
+        $enlever-> delete();
+        
+        return redirect('/apprenants')->with('status','L\'apprenant a bien été supprimé.');
+    }
+
+
+
 
 }

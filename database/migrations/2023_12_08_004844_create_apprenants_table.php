@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('apprenants', function (Blueprint $table) {
             $table->id();
-            $table->string('prenom');
             $table->string('nom');
+            $table->string('prenom');
 
 
             $table->timestamps();
@@ -29,4 +29,3 @@ return new class extends Migration
         Schema::dropIfExists('apprenants');
     }
 };
-

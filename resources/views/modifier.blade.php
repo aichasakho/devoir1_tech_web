@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col s12">
                 
-                <h1>AJOUTER UN APPRENANTS</h1>
+                <h1>MODIFIER UN APPRENANTS</h1>
                 <hr>
 
                 @if (session('status'))
@@ -20,27 +20,28 @@
 
                 </div>
                 @endif
-
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li class="alert alert-danger">{{ $error }}</li>
                     @endforeach
 
                 </ul>
-                <form Action="/ajouter/traitement" method="POST" class="form-group">
-                    @csrf
+                <form Action="/modifier/traitement" method="POST" class="form-group">
+                        @csrf
+
+                        <input type="text" name="id" style="diplay: none;" value="{{$changer->id}}">
                         <div class="form-group">
                             <label for="Prénom" class="form-label">Prénom</label>
-                            <input type="text" class="form-control" id="Prénom" name="prenom">
+                            <input type="text" class="form-control" id="Prénom" name="prenom" value="{{ $changer->prenom }}">
                         </div>
 
                         <div class="form-group">
                             <label for="Nom" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="Nom" name="nom">
+                            <input type="text" class="form-control" id="Nom" name="nom" value="{{ $changer->nom }}">
                         </div>
                         <br>
 
-                        <button type="submit" class="btn btn-secondary">AJOUTER UN ETUDIANT</button>
+                        <button type="submit" class="btn btn-secondary">MODIFIER UN ETUDIANT</button>
                     <br> <br>
                     <a href="/apprenants" class="btn btn-danger">Revenir à la liste des apprenants</a>    
                     </form>

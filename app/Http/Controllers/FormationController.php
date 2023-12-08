@@ -9,7 +9,7 @@ class FormationController extends Controller
 {
     public function index(){
         $liste = Formation::all();
-        return view('formation',['liste' => $liste]);
+        return view('formation',compact('liste'));
 }
 
 }

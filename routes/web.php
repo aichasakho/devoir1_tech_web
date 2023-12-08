@@ -18,6 +18,11 @@ use App\Http\Controllers\FormationController;
 Route::get('/apprenant', function () {
     return view('apprenant');
 });
+Route::get('/supprimer_apprenant/{id}',[ApprenantController::class,'supprimer_apprenant']);
+
+Route::get('/modifier_apprenant/{id}',[ApprenantController::class,'modifier_apprenant']);
+Route::post('/modifier/traitement',[ApprenantController::class,'modifier_apprenant_traitement']);
+
 Route::get('/apprenants',[ApprenantController::class,'index']);
 Route::get('/ajouter',[ApprenantController::class,'ajouter_etudiant']);
 Route::post('/ajouter/traitement',[ApprenantController::class,'ajouter_etudiant_traitement']);
