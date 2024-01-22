@@ -23,12 +23,14 @@
                         </div>
                     @endif
 
-                    <table class="table">
+                    <table class="table" style="border: 1px solid blackq
+                    ">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Prénom</th>
                                 <th>Nom</th>
+                                <th>Formations</th>
                                 <th>Action</th>  
                             </tr>
                         </thead>
@@ -43,6 +45,13 @@
                                 <td>{{ $ide }}</td>
                                 <td>{{ $apprenant->prenom}}</td>
                                 <td>{{ $apprenant->nom}}</td>
+                                <td>
+                                     @foreach($apprenant->formations as $formation) 
+                                     {{$formation->nomFormation}}
+                                     @endforeach
+
+                                </td>
+
                                 <td>
                                     <a href="/modifier_apprenant/{{ $apprenant->id}}" class="btn btn-success">Modifier</a>
                                     <a href="/supprimer_apprenant/{{ $apprenant->id}}" class="btn btn-danger">Supprimer</a>

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Apprenant extends Model
 {
     use HasFactory;
+
+    public function formations(){
+        return $this->hasMany(Formation::class);
+    }
 }

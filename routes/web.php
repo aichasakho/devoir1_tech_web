@@ -15,9 +15,6 @@ use App\Http\Controllers\FormationController;
 |
 */
 
-Route::get('/apprenant', function () {
-    return view('apprenant');
-});
 Route::get('/supprimer_apprenant/{id}',[ApprenantController::class,'supprimer_apprenant']);
 
 Route::get('/modifier_apprenant/{id}',[ApprenantController::class,'modifier_apprenant']);
@@ -28,7 +25,5 @@ Route::get('/ajouter',[ApprenantController::class,'ajouter_etudiant']);
 Route::post('/ajouter/traitement',[ApprenantController::class,'ajouter_etudiant_traitement']);
 
 
-
-Route::get('/formation',[FormationController::class,'index']);
-
+Route::resource('formations',FormationController::class);
 
