@@ -17,6 +17,7 @@ use App\Http\Controllers\FormationController;
 
 Route::get('/supprimer_apprenant/{id}',[ApprenantController::class,'supprimer_apprenant']);
 
+
 Route::get('/modifier_apprenant/{id}',[ApprenantController::class,'modifier_apprenant']);
 Route::post('/modifier/traitement',[ApprenantController::class,'modifier_apprenant_traitement']);
 

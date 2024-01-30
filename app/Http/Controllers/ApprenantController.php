@@ -31,6 +31,11 @@ class ApprenantController extends Controller
         return redirect('/ajouter')->with('status','L\'apprenant a été ajouté avec succès.');
 
     }
+    public function rechercher()
+    {
+        
+    }
+
     public function modifier_apprenant($id) {
         $changer = Apprenant::find($id);
 
